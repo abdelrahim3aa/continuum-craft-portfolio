@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Github, Linkedin, Mail, ArrowRight, X, HeartHandshake, Zap, Code, ExternalLink, Briefcase, Link as LinkIcon } from 'lucide-react';
+import { SiPhp, SiLaravel, SiMysql, SiNodedotjs, SiExpress, SiMongodb, SiHtml5, SiCss3, SiCplusplus, SiDocker, SiGit, SiJavascript } from 'react-icons/si';
 import portraitImage from '@/assets/portrait.jpg';
 import fintechImage from '@/assets/project-fintech.jpg';
 import ecommerceImage from '@/assets/project-ecommerce.jpg';
@@ -66,18 +67,18 @@ const PROJECTS = [
 ];
 
 const CAPABILITIES = [
-  { name: 'React.js', icon: Code },
-  { name: 'Node.js', icon: Code },
-  { name: 'PHP', icon: Code },
-  { name: 'Laravel', icon: Code },
-  { name: 'MySQL', icon: Code },
-  { name: 'MongoDB', icon: Code },
-  { name: 'TypeScript', icon: Code },
-  { name: 'AWS/GCP', icon: Code },
-  { name: 'GraphQL', icon: Code },
-  { name: 'Design Systems', icon: Code },
-  { name: 'Figma', icon: Code },
-  { name: 'Prototyping', icon: Code },
+  { name: 'PHP', icon: SiPhp },
+  { name: 'Laravel', icon: SiLaravel },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'Express.js', icon: SiExpress },
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'HTML5', icon: SiHtml5 },
+  { name: 'CSS3', icon: SiCss3 },
+  { name: 'C++', icon: SiCplusplus },
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'Docker', icon: SiDocker },
+  { name: 'Git', icon: SiGit },
 ];
 
 const PHILOSOPHY = [
@@ -222,7 +223,7 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
             className="text-lg font-light mb-4 text-muted-foreground"
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
           >
-            Digital Experience Architect & Design Technologist.
+            Junior Backend Developer
           </motion.p>
           <motion.h1
             className="text-balance font-extrabold leading-tight tracking-tighter"
@@ -232,12 +233,12 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
               visible: { scale: 1, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.83, 0, 0.17, 1] } } 
             }}
           >
-            Architecting maturity. Digital systems that endure
+            Abdelrahim Abuelmaaref
             <span className="text-accent">.</span>
           </motion.h1>
 
           <motion.a
-            href="mailto:contact@example.com"
+            href="mailto:abdelrahimabuelmaaref@gmail.com"
             className="mt-12 text-lg font-medium tracking-wider inline-flex items-center group relative w-fit text-accent hover:text-accent/80 transition-colors"
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: 0.4 } } }}
             onMouseEnter={() => handleHover('TALK')}
@@ -289,7 +290,7 @@ const AboutSection = () => (
       viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: 0.2 }}
     >
-      I bridge the gap between abstract design principles and concrete, scalable engineering solutions. My focus is on <strong className="text-foreground">systemic elegance</strong>—designing APIs and user experiences that minimize complexity at the human layer while maximizing operational integrity at the machine layer.
+      Junior Backend Developer skilled in PHP and Laravel, with experience in scalable web apps and RESTful APIs. Passionate about clean, SOLID code and continuous improvement. Currently pursuing a Bachelor's degree in Computers & Artificial Intelligence at Sohag University.
     </motion.p>
   </section>
 );
@@ -534,19 +535,19 @@ const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      System Palette
+      Tech Stack
     </motion.h2>
 
     <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 max-w-4xl mx-auto">
       {CAPABILITIES.map((cap, index) => (
         <motion.div
           key={cap.name}
-          className="relative w-12 h-12 flex items-center justify-center"
+          className="relative w-16 h-16 flex items-center justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.4, delay: index * 0.05 }}
-          whileHover={{ scale: 1.1, rotate: 3 }}
+          whileHover={{ scale: 1.2, rotate: 3 }}
           onMouseEnter={() => handleHover(cap.name)}
           onMouseLeave={handleLeave}
           role="img"
@@ -554,21 +555,12 @@ const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
         >
           <cap.icon
             size={48}
-            strokeWidth={1.5}
-            className="transition-colors duration-300"
+            className="transition-all duration-300"
             style={{ 
-              color: 'hsl(var(--foreground))', 
-              filter: cursorText === cap.name ? 'drop-shadow(0 0 5px hsl(var(--accent)))' : 'none' 
+              color: cursorText === cap.name ? 'hsl(var(--accent))' : 'hsl(var(--foreground))',
+              filter: cursorText === cap.name ? 'drop-shadow(0 0 8px hsl(var(--accent)))' : 'none' 
             }}
           />
-          {cursorText === cap.name && (
-            <motion.div
-              className="absolute inset-0 rounded-full bg-accent mix-blend-color"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              aria-hidden="true"
-            />
-          )}
         </motion.div>
       ))}
     </div>
@@ -639,9 +631,9 @@ const ContactLayer = ({ handleHover, handleLeave }: any) => (
       viewport={{ once: true, amount: 0.5 }}
       transition={{ delay: 0.4 }}
     >
-      <SocialIcon Icon={Linkedin} href="#" label="LinkedIn" handleHover={handleHover} handleLeave={handleLeave} />
-      <SocialIcon Icon={Github} href="#" label="GitHub" handleHover={handleHover} handleLeave={handleLeave} />
-      <SocialIcon Icon={LinkIcon} href="#" label="Book Intro" handleHover={handleHover} handleLeave={handleLeave} />
+        <SocialIcon Icon={Linkedin} href="https://linkedin.com/in/elmaaref" label="LinkedIn" handleHover={handleHover} handleLeave={handleLeave} />
+        <SocialIcon Icon={Github} href="https://github.com/abdelrahim3aa" label="GitHub" handleHover={handleHover} handleLeave={handleLeave} />
+        <SocialIcon Icon={LinkIcon} href="tel:+201015366195" label="Phone" handleHover={handleHover} handleLeave={handleLeave} />
     </motion.div>
   </section>
 );
@@ -714,7 +706,7 @@ const Index = () => {
       </main>
 
       <footer className="text-center py-8 text-sm text-muted-foreground">
-        © {new Date().getFullYear()} The Continuum. Design Manifest. Built with React & Tailwind.
+        © {new Date().getFullYear()} Abdelrahim Abuelmaaref. Built with React & Tailwind.
       </footer>
     </div>
   );
