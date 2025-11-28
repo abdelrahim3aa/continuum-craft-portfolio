@@ -682,7 +682,7 @@ const ContactLayer = ({ handleHover, handleLeave }: any) => (
       onMouseLeave={handleLeave}
       whileHover={{ scale: 1.02 }}
     >
-      abdelrahimabuelmaaref@gmail.com
+      abdelrahim.abuelmaaref@gmail.com
       <motion.span
         className="absolute left-0 bottom-0 w-full h-[2px] rounded-full bg-accent origin-left"
         initial={{ scaleX: 0 }}
