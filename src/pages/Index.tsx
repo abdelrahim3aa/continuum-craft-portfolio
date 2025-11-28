@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Github, Linkedin, Mail, ArrowRight, X, HeartHandshake, Zap, Code, ExternalLink, Briefcase, Link as LinkIcon } from 'lucide-react';
+import { Sun, Moon, Github, Linkedin, Mail, ArrowRight, X, HeartHandshake, Zap, Code, ExternalLink, Briefcase, Link as LinkIcon, Download } from 'lucide-react';
 import { SiPhp, SiLaravel, SiMysql, SiNodedotjs, SiExpress, SiMongodb, SiHtml5, SiCss3, SiCplusplus, SiDocker, SiGit, SiJavascript } from 'react-icons/si';
 import portraitImage from '@/assets/portrait.jpg';
 import fintechImage from '@/assets/project-fintech.jpg';
@@ -261,17 +261,32 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
             Junior Backend Developer specializing in PHP and Laravel, passionate about clean code and scalable architecture.
           </motion.p>
 
-          <motion.a
-            href="mailto:abdelrahimabuelmaaref@gmail.com"
-            className="mt-12 text-lg font-medium tracking-wider inline-flex items-center group relative w-fit text-accent hover:text-accent/80 transition-colors"
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: 0.4 } } }}
-            onMouseEnter={() => handleHover('TALK')}
-            onMouseLeave={handleLeave}
-            aria-label="Start Conversation via Email"
-          >
-            Start Conversation
-            <ArrowRight className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.a>
+          <div className="flex flex-wrap gap-4 mt-12">
+            <motion.a
+              href="mailto:abdelrahimabuelmaaref@gmail.com"
+              className="text-lg font-medium tracking-wider inline-flex items-center group relative text-accent hover:text-accent/80 transition-colors"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: 0.4 } } }}
+              onMouseEnter={() => handleHover('TALK')}
+              onMouseLeave={handleLeave}
+              aria-label="Start Conversation via Email"
+            >
+              Start Conversation
+              <ArrowRight className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+            </motion.a>
+
+            <motion.a
+              href="/AbdelrahimAbuelmaaref-Resume.pdf"
+              download="Abdelrahim_Abuelmaaref_Resume.pdf"
+              className="text-lg font-medium tracking-wider inline-flex items-center group relative border border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 px-6 py-2 rounded-lg"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: 0.5 } } }}
+              onMouseEnter={() => handleHover('CV')}
+              onMouseLeave={handleLeave}
+              aria-label="Download Resume"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Download Resume
+            </motion.a>
+          </div>
         </div>
 
         <motion.div
