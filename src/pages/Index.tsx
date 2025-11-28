@@ -676,13 +676,13 @@ const ContactLayer = ({ handleHover, handleLeave }: any) => (
         Get In Touch
       </motion.h2>
     <motion.a
-      href="mailto:senior.architect@manifest.com"
+      href="mailto:abdelrahimabuelmaaref@gmail.com"
       className="text-4xl sm:text-6xl font-extralight tracking-tighter mb-12 block group relative w-fit mx-auto transition-colors duration-300 hover:text-accent"
       onMouseEnter={() => handleHover('EMAIL')}
       onMouseLeave={handleLeave}
       whileHover={{ scale: 1.02 }}
     >
-      senior.architect@manifest.com
+      abdelrahimabuelmaaref@gmail.com
       <motion.span
         className="absolute left-0 bottom-0 w-full h-[2px] rounded-full bg-accent origin-left"
         initial={{ scaleX: 0 }}
