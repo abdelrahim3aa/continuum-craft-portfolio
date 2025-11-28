@@ -1,7 +1,11 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Github, Linkedin, Mail, ArrowRight, X, HeartHandshake, Zap, Code, ExternalLink, Briefcase, Link as LinkIcon, Download } from 'lucide-react';
-import { SiPhp, SiLaravel, SiMysql, SiNodedotjs, SiExpress, SiMongodb, SiHtml5, SiCss3, SiCplusplus, SiDocker, SiGit, SiJavascript } from 'react-icons/si';
+import { 
+  SiPhp, SiLaravel, SiMysql, SiNodedotjs, SiExpress, SiMongodb,
+  SiHtml5, SiCss3, SiCplusplus, SiJavascript, SiDocker, SiGit,
+  SiReact, SiComposer, SiLinux, SiPython, SiNpm
+} from 'react-icons/si';
 import portraitImage from '@/assets/portrait.jpg';
 import fintechImage from '@/assets/project-fintech.jpg';
 import ecommerceImage from '@/assets/project-ecommerce.jpg';
@@ -98,6 +102,11 @@ const CAPABILITIES = [
   { name: 'JavaScript', icon: SiJavascript },
   { name: 'Docker', icon: SiDocker },
   { name: 'Git', icon: SiGit },
+  { name: 'React', icon: SiReact },
+  { name: 'Composer', icon: SiComposer },
+  { name: 'Linux', icon: SiLinux },
+  { name: 'Python', icon: SiPython },
+  { name: 'npm', icon: SiNpm },
 ];
 
 const PHILOSOPHY = [
@@ -242,7 +251,7 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
             className="text-lg font-light mb-4 text-muted-foreground"
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
           >
-            Junior Backend Developer
+            Junior Full-Stack Developer
           </motion.p>
           <motion.h1
             className="text-balance font-extrabold leading-tight tracking-tighter"
@@ -256,11 +265,21 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
             <span className="text-accent">.</span>
           </motion.h1>
           <motion.p
-            className="text-xl font-light mt-6 text-muted-foreground max-w-2xl"
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { delay: 0.2 } } }}
-          >
-            Junior Backend Developer specializing in PHP and Laravel, passionate about clean code and scalable architecture.
-          </motion.p>
+  className="text-xl font-light mt-6 text-muted-foreground max-w-2xl"
+  variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { delay: 0.2 } } }}
+>
+  Full-Stack Developer focused on Backend. Skilled in{' '}
+  <span className="font-medium text-primary/50 hover:text-[#9CFF00] transition-colors duration-200">
+    PHP/Laravel
+  </span>,{' '}
+  <span className="font-medium text-primary/50 hover:text-[#9CFF00] transition-colors duration-200">
+    Node.js/Express
+  </span>, and{' '}
+  <span className="font-medium text-primary/50 hover:text-[#9CFF00] transition-colors duration-200">
+    MERN stack
+  </span>. Passionate about clean, scalable, and maintainable web applications.
+</motion.p>
+
 
           <div className="flex flex-wrap gap-4 mt-12">
             <motion.a
@@ -330,12 +349,13 @@ const AboutSection = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.2 }}
       >
-        <p className="text-xl font-light leading-relaxed mb-6 text-muted-foreground">
-          I'm a Junior Backend Developer passionate about building scalable web applications and RESTful APIs using PHP and Laravel. I focus on writing clean, maintainable code following SOLID principles and industry best practices.
-        </p>
-        <p className="text-xl font-light leading-relaxed text-muted-foreground">
-          With hands-on experience in full-stack development, I've built real-time chat applications, e-commerce platforms, and learning management systems that serve thousands of users.
-        </p>
+        <p className="text-l font-light leading-relaxed mb-6 text-muted-foreground">
+  I'm a Junior Full-Stack Developer with hands-on experience in <strong>PHP, Laravel, Node.js, Express and MERN stack development</strong>. I build <strong>scalable web applications and RESTful APIs</strong> with clean, maintainable code following <strong>SOLID principles</strong> and best practices.
+</p>
+<p className="text-l font-light leading-relaxed text-muted-foreground">
+  I've developed <strong>real-time chat apps, e-commerce APIs, and learning management systems</strong> serving thousands of users. I also have experience with <strong>database design, Docker, Git, and API integration</strong>, and enjoy continuously improving my skills to deliver robust, production-ready solutions.
+</p>
+
       </motion.div>
       <motion.div
         className="p-6 rounded-xl border border-divider bg-card"

@@ -90,7 +90,7 @@ const Navigation = ({ darkMode, toggleMode }: NavigationProps) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              AA
+              Abdelrahim A
               <span className="text-accent">.</span>
             </motion.button>
 
