@@ -345,22 +345,28 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
         </div>
 
         <motion.div
-          className="lg:col-span-2 hidden lg:flex justify-end relative aspect-[4/6] overflow-hidden rounded-xl shadow-2xl"
+          className="lg:col-span-2 hidden lg:flex justify-end relative"
           variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0, transition: { delay: 0.6, duration: 0.8 } } }}
-          style={{
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 90%, 80% 100%, 0% 100%)'
-          }}
         >
-          <img
-            src={portraitImage}
-            alt="Professional Portrait"
-            className="w-full h-full object-cover transition-opacity duration-500 opacity-90"
-            loading="eager"
-          />
-          <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20"
-            aria-hidden="true"
-          />
+          <div className="relative aspect-[4/6] w-full rounded-xl p-1.5 bg-gradient-to-br from-secondary via-primary to-accent shadow-2xl">
+            <div 
+              className="w-full h-full overflow-hidden rounded-lg relative"
+              style={{
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 90%, 80% 100%, 0% 100%)'
+              }}
+            >
+              <img
+                src={portraitImage}
+                alt="Professional Portrait"
+                className="w-full h-full object-cover transition-opacity duration-500 opacity-90"
+                loading="eager"
+              />
+              <div 
+                className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </header>
@@ -377,7 +383,7 @@ const AboutSection = () => (
     >
       About Me
     </motion.h2>
-    <div className="grid lg:grid-cols-2 gap-12">
+    <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -393,7 +399,7 @@ const AboutSection = () => (
 
       </motion.div>
       <motion.div
-        className="p-8 rounded-xl border-2 border-accent/20 bg-gradient-to-br from-card via-card to-accent/5 relative overflow-hidden group"
+        className="p-6 sm:p-8 rounded-xl border-2 border-accent/20 bg-gradient-to-br from-card via-card to-accent/5 relative overflow-hidden group"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
