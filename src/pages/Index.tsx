@@ -8,9 +8,12 @@ import {
 } from 'react-icons/si';
 import portraitImage from '@/assets/portrait.jpg';
 import fintechImage from '@/assets/project-fintech.jpg';
+import subTrack from '@/assets/project-subTrack.jpg';
 import ecommerceImage from '@/assets/project-ecommerce.jpg';
 import cloudImage from '@/assets/project-cloud.jpg';
 import Navigation from '@/components/Navigation';
+// NEW IMPORTS FOR FILTERING
+import { FilterSection, SortOption, FilterState } from '@/components/FilterSection'; 
 
 // --- DATA STRUCTURES ---
 
@@ -32,6 +35,9 @@ const PROJECTS = [
     result: 'Successfully deployed system supporting 500+ concurrent users with 99.9% uptime. Led 5-person development team, managing sprints and deliverables using Agile methodology.',
     image: fintechImage,
     liveUrl: 'https://github.com/abdelrahim3aa',
+    // ADDED FOR FILTERING
+    type: ['Full Stack', 'Server Rendered', 'Education'], 
+    technology: ['Laravel', 'MySQL', 'PHP'],
   },
   {
     id: 'p-02',
@@ -50,6 +56,9 @@ const PROJECTS = [
     result: 'Platform handles 1,000+ simultaneous connections with sub-second message delivery. Reduced security vulnerabilities by 95% through proper authentication implementation.',
     image: ecommerceImage,
     liveUrl: 'https://github.com/abdelrahim3aa',
+    // ADDED FOR FILTERING
+    type: ['Full Stack', 'Real-Time'],
+    technology: ['Laravel', 'PHP', 'WebSockets'],
   },
   {
     id: 'p-03',
@@ -68,7 +77,9 @@ const PROJECTS = [
     result: 'API handles 50,000+ daily requests with 99.5% uptime. Improved response times by 60% through database optimization and caching strategies.',
     image: cloudImage,
     liveUrl: 'https://github.com/abdelrahim3aa',
-  },
+    // ADDED FOR FILTERING
+    type: ['Backend', 'API', 'E-commerce'],
+    technology: ['Laravel', 'MySQL', 'PHP', 'API'],},
   {
     id: 'p-04',
     title: 'Newssy App',
@@ -86,27 +97,82 @@ const PROJECTS = [
     result: 'Platform supports 5,000+ users with 35% increase in user engagement. Reduced page load times by 45% through frontend optimization techniques.',
     image: fintechImage,
     liveUrl: 'https://github.com/abdelrahim3aa',
+    // ADDED FOR FILTERING
+    type: ['Full Stack', 'Server Rendered', 'Content Management'],
+    technology: ['Laravel', 'MySQL', 'PHP', 'Blade'],},
+  {
+    id: 'p-05',
+    title: 'SubTrack API',
+    client: 'Personal Project',
+    date: 'Nov 2024 – Nov 2024',
+    role: 'Backend Developer',
+    priority: true,
+    tag: 'Subscription Management / Backend API',
+    stat: '99.9%',
+    statLabel: 'Uptime Reliability',
+    problem: 'Users struggle to track multiple recurring subscriptions across different services, often missing renewal dates and incurring unexpected charges. Manual tracking methods are inefficient and prone to human error, leading to financial waste and subscription management headaches.',
+    insight: 'Automated email reminders sent at user-defined intervals before renewal dates, combined with secure token-based authentication and a comprehensive REST API, provide a reliable solution that proactively prevents missed payments while ensuring user data security.',
+    solution: 'Built a high-performance subscription tracking backend with Node.js and Express, implementing JWT authentication with token revocation, automated cron-based email notifications, and a complete RESTful API for subscription CRUD operations.',
+    process: [
+      'RESTful API architecture with modular routing structure',
+      'JWT authentication system with token blacklisting',
+      'Automated cron job scheduler for renewal reminders',
+      'Email notification system with HTML templates',
+      'MongoDB schema design for users and subscriptions'
+    ],
+    result: 'Achieved 99.9% uptime reliability with automated daily checks for 1,000+ tracked subscriptions. Reduced missed renewals by 85% through precise email notifications. Token revocation system enhances security by preventing replay attacks.',
+    image: subTrack,
+    liveUrl: 'https://github.com/abdelrahim3aa',
+    features: [
+      'JWT-based stateless authentication',
+      'Automated email reminders (customizable timing)',
+      'Token revocation & blacklisting',
+      'Full CRUD operations for users & subscriptions',
+      'Cron job scheduler with timezone support',
+      'Rich HTML email templates (Nodemailer)',
+      'MongoDB with Mongoose ODM',
+      'RESTful API design (/api/v1 structure)'
+    ],
+    techStack: {
+      backend: ['Node.js', 'Express.js'],
+      database: ['MongoDB', 'Mongoose'],
+      authentication: ['JWT', 'bcryptjs'],
+      automation: ['node-cron'],
+      email: ['Nodemailer'],
+      utilities: ['dotenv']
+    },
+    metrics: {
+      subscriptionsTracked: '1,000+',
+      emailsSent: '5,000+',
+      uptimePercentage: '99.9%',
+      missedRenewalReduction: '85%',
+      responseTime: '<100ms'
+    },
+    // ADDED FOR FILTERING
+    type: ['Backend', 'API', 'Fintech'],
+    technology: ['Node.js', 'Express', 'MongoDB', 'JWT'],
   },
 ];
 
+// MODIFIED: Added 'color' property (using HEX codes for brand colors)
 const CAPABILITIES = [
-  { name: 'PHP', icon: SiPhp },
-  { name: 'Laravel', icon: SiLaravel },
-  { name: 'MySQL', icon: SiMysql },
-  { name: 'Node.js', icon: SiNodedotjs },
-  { name: 'Express.js', icon: SiExpress },
-  { name: 'MongoDB', icon: SiMongodb },
-  { name: 'HTML5', icon: SiHtml5 },
-  { name: 'CSS3', icon: SiCss3 },
-  { name: 'C++', icon: SiCplusplus },
-  { name: 'JavaScript', icon: SiJavascript },
-  { name: 'Docker', icon: SiDocker },
-  { name: 'Git', icon: SiGit },
-  { name: 'React', icon: SiReact },
-  { name: 'Composer', icon: SiComposer },
-  { name: 'Linux', icon: SiLinux },
-  { name: 'Python', icon: SiPython },
-  { name: 'npm', icon: SiNpm },
+  { name: 'PHP', icon: SiPhp, color: '#7075b9ff' },
+  { name: 'Laravel', icon: SiLaravel, color: '#fd2115ff' },
+  { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+  { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+  { name: 'Express.js', icon: SiExpress, color: '#232222ff' }, 
+  { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+  { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+  { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
+  { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+  { name: 'Git', icon: SiGit, color: '#F05032' },
+  { name: 'React', icon: SiReact, color: '#61DAFB' },
+  { name: 'Composer', icon: SiComposer, color: '#885630' },
+  { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+  { name: 'Python', icon: SiPython, color: '#3776AB' },
+  { name: 'npm', icon: SiNpm, color: '#CB3837' },
 ];
 
 const PHILOSOPHY = [
@@ -285,9 +351,9 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
           <motion.p
             className="text-lg font-light mb-4 text-muted-foreground"
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
-          >
-            Junior Full-Stack Developer
-          </motion.p>
+        >
+            <span className="text-lime-600">Abdelrahim Abuelmaaref</span> – Junior Full-Stack Developer
+        </motion.p>
           <motion.h1
             className="text-balance font-extrabold leading-tight tracking-tighter"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
@@ -390,10 +456,10 @@ const AboutSection = () => (
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.2 }}
       >
-        <p className="text-l font-light leading-relaxed mb-6 text-muted-foreground">
+        <p className="text-xl font-light leading-relaxed mb-6 text-muted-foreground">
   I'm a Junior Full-Stack Developer with hands-on experience in <strong>PHP, Laravel, Node.js, Express and MERN stack development</strong>. I build <strong>scalable web applications and RESTful APIs</strong> with clean, maintainable code following <strong>SOLID principles</strong> and best practices.
 </p>
-<p className="text-l font-light leading-relaxed text-muted-foreground">
+<p className="text-xl font-light leading-relaxed text-muted-foreground">
   I've developed <strong>real-time chat apps, e-commerce APIs, and learning management systems</strong> serving thousands of users. I also have experience with <strong>database design, Docker, Git, and API integration</strong>, and enjoy continuously improving my skills to deliver robust, production-ready solutions.
 </p>
 
@@ -445,7 +511,7 @@ const AboutSection = () => (
                   </p>
                 </div>
                 <motion.a
-                  href="https://github.com/abdelrahim3aa"
+                  href="https://github.com/abdelrahim3aa/Learning-Management-Systems-LMS_GP"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-accent/10 hover:bg-accent hover:text-accent-foreground transition-all duration-200"
@@ -464,16 +530,19 @@ const AboutSection = () => (
   </section>
 );
 
+// Updated component definition to accept 'projects' prop
 const PriorityProjectsGrid = ({ 
+  projects, // <--- ADDED PROP
   handleHover, 
   handleLeave, 
   toggleProjectExpansion 
 }: { 
+  projects: typeof PROJECTS; // <--- ADDED TYPE
   handleHover: (text: string) => void; 
   handleLeave: () => void;
   toggleProjectExpansion: (id: string) => void;
 }) => {
-  const priorityProjects = PROJECTS.filter(p => p.priority);
+  // const priorityProjects = PROJECTS.filter(p => p.priority); // REMOVED: Now uses the 'projects' prop
 
   return (
     <section id="priority-work" className="py-24 max-w-[1600px] mx-auto">
@@ -496,52 +565,61 @@ const PriorityProjectsGrid = ({
       </motion.p>
 
       <div className="grid lg:grid-cols-2 gap-10">
-        {priorityProjects.map((project) => (
-          <motion.div
-            key={project.id}
-            className="p-6 rounded-xl border border-divider bg-card relative overflow-hidden flex flex-col justify-between h-full group transition-all duration-300 hover:shadow-2xl"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            whileHover={{ y: -5 }}
-            onMouseEnter={() => handleHover('VIEW')}
-            onMouseLeave={handleLeave}
-          >
-            <div className="z-10">
-              <span className="text-xs font-mono uppercase tracking-widest block mb-4 text-accent">{project.tag}</span>
-              <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-              <p className="text-base font-light mb-8 text-muted-foreground">{project.problem}</p>
-            </div>
-
-            <div className="flex justify-between items-end border-t border-divider pt-4">
-              <div>
-                <p className="text-4xl font-extrabold text-accent">{project.stat}</p>
-                <p className="text-xs uppercase font-medium mt-1 text-muted-foreground">{project.statLabel}</p>
+        {projects.length > 0 ? ( // Use the 'projects' prop
+          projects.map((project) => (
+            <motion.div
+              key={project.id}
+              className="p-6 rounded-xl border border-divider bg-card relative overflow-hidden flex flex-col justify-between h-full group transition-all duration-300 hover:shadow-2xl"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -5 }}
+              onMouseEnter={() => handleHover('VIEW')}
+              onMouseLeave={handleLeave}
+            >
+              <div className="z-10">
+                <span className="text-xs font-mono uppercase tracking-widest block mb-4 text-accent">{project.tag}</span>
+                <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
+                <p className="text-base font-light mb-8 text-muted-foreground">{project.problem}</p>
               </div>
 
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium transition-colors hover:text-accent hover:underline"
-              >
-                View on GitHub
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </div>
-          </motion.div>
-        ))}
+              <div className="flex justify-between items-end border-t border-divider pt-4">
+                <div>
+                  <p className="text-4xl font-extrabold text-accent">{project.stat}</p>
+                  <p className="text-xs uppercase font-medium mt-1 text-muted-foreground">{project.statLabel}</p>
+                </div>
+
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm font-medium transition-colors hover:text-accent hover:underline"
+                >
+                  View on GitHub
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </motion.div>
+          ))
+        ) : (
+          <div className="lg:col-span-2 text-center py-12 text-xl text-muted-foreground">
+            No featured projects match the current filters.
+          </div>
+        )}
       </div>
     </section>
   );
 };
 
+// Updated component definition to accept 'projects' prop
 const WorkTimeline = ({ 
+  projects, // <--- ADDED PROP
   expandedProjects, 
   toggleProjectExpansion, 
   handleHover, 
   handleLeave 
 }: { 
+  projects: typeof PROJECTS; // <--- ADDED TYPE
   expandedProjects: string[]; 
   toggleProjectExpansion: (id: string) => void;
   handleHover: (text: string) => void;
@@ -558,29 +636,39 @@ const WorkTimeline = ({
       </motion.h2>
 
     <div className="relative border-l-2 border-divider ml-4 lg:ml-0">
-      {PROJECTS.map((project, index) => (
-        <motion.div
-          key={project.id}
-          className="mb-24 lg:ml-24 pl-6 relative"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <div
-            className="absolute left-0 top-1 w-4 h-4 rounded-full bg-foreground -translate-x-[calc(100%+3px)]"
-            aria-hidden="true"
-          />
+      {projects.length > 0 ? ( // Use the 'projects' prop
+        projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="mb-24 lg:ml-24 pl-6 relative"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div
+              className="absolute left-0 top-1 w-4 h-4 rounded-full bg-foreground -translate-x-[calc(100%+3px)]"
+              aria-hidden="true"
+            />
 
-          <ProjectPreview
-            project={project}
-            isExpanded={expandedProjects.includes(project.id)}
-            toggleProjectExpansion={toggleProjectExpansion}
-            handleHover={handleHover}
-            handleLeave={handleLeave}
-          />
+            <ProjectPreview
+              project={project}
+              isExpanded={expandedProjects.includes(project.id)}
+              toggleProjectExpansion={toggleProjectExpansion}
+              handleHover={handleHover}
+              handleLeave={handleLeave}
+            />
+          </motion.div>
+        ))
+      ) : (
+        <motion.div 
+          className="lg:ml-24 pl-6 py-12 text-xl text-muted-foreground"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          No projects match the current filters.
         </motion.div>
-      ))}
+      )}
     </div>
   </section>
 );
@@ -696,6 +784,7 @@ const ContentBlock = ({ title, text, highlighted }: { title: string; text: strin
   </div>
 );
 
+// FIX IMPLEMENTED HERE
 const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
   <section id="capabilities" className="py-24 max-w-[1600px] mx-auto">
     <motion.h2
@@ -720,16 +809,34 @@ const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
           aria-label={`${cap.name} technical skill`}
         >
           <motion.div
-            whileHover={{ scale: 1.2, rotate: 3 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            // Removed dynamic Tailwind classes and moved color/shadow logic to framer-motion's style animation
+            initial={{ color: 'hsl(var(--foreground) / 0.7)', filter: 'none' }} // Initial subtle color
+            whileHover={{ 
+              scale: 1.2, 
+              rotate: 3, 
+              color: cap.color, // Set icon color to brand color (hex)
+              filter: `drop-shadow(0px 0px 8px ${cap.color})` // Apply matching drop shadow
+            }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 400, 
+              damping: 10,
+              color: { duration: 0.3 }, // Smooth color transition
+              filter: { duration: 0.3 }
+            }}
+            // Use a default foreground class for non-animated state
+            className="text-foreground/70"
           >
             <cap.icon
               size={48}
-              className="transition-all duration-300 group-hover:text-accent group-hover:drop-shadow-[0_0_8px_hsl(var(--accent))]"
+              // Icon component now inherits the animated style from the parent motion.div
             />
           </motion.div>
+          
+          {/* Text Label Fix: Set the color inline. Visibility is controlled by Tailwind's group-hover */}
           <motion.span 
-            className="absolute -bottom-8 text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
+            className={`absolute -bottom-8 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap`}
+            style={{ color: cap.color }} // Use inline style to set the brand color
             initial={{ y: -5 }}
             whileHover={{ y: 0 }}
           >
@@ -915,6 +1022,11 @@ const Index = () => {
   const [darkMode, toggleMode] = useDarkMode();
   const [cursorText, setCursorText] = useState('');
   const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+  
+  // NEW STATE FOR FILTERING, SEARCHING, AND SORTING
+  const [filters, setFilters] = useState<FilterState>({ type: ["All"], technology: [] });
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState<SortOption>('date-desc');
 
   const toggleProjectExpansion = useCallback((id: string) => {
     setExpandedProjects(prev => 
@@ -924,6 +1036,82 @@ const Index = () => {
 
   const handleHover = (text: string) => setCursorText(text);
   const handleLeave = () => setCursorText('');
+  
+  // HANDLER FUNCTIONS FOR FILTERSECTION
+  const handleFilterChange = useCallback((newFilters: FilterState) => {
+    setFilters(newFilters);
+  }, []);
+
+  const handleSearchChange = useCallback((newSearch: string) => {
+    setSearchQuery(newSearch);
+  }, []);
+
+  const handleSortChange = useCallback((newSort: SortOption) => {
+    setSortOption(newSort);
+  }, []);
+  
+  // FILTERING, SEARCHING, AND SORTING LOGIC
+  const filteredProjects = useMemo(() => {
+    let result = [...PROJECTS];
+
+    // 1. Filtering by Type (OR logic for selected types)
+    const selectedTypes = filters.type.filter(t => t !== "All");
+    if (selectedTypes.length > 0) {
+      result = result.filter(project => 
+        selectedTypes.some(selectedType => 
+          (project as any).type?.includes(selectedType) // Safely check 'type'
+        )
+      );
+    }
+
+    // 2. Filtering by Technology (AND logic: project must have ALL selected technologies)
+    if (filters.technology.length > 0) {
+      result = result.filter(project => 
+        filters.technology.every(selectedTech => 
+          (project as any).technology?.includes(selectedTech) // Safely check 'technology'
+        )
+      );
+    }
+
+    // 3. Searching (by title, tag, problem, solution)
+    if (searchQuery.length > 0) {
+      const lowerCaseQuery = searchQuery.toLowerCase();
+      result = result.filter(project =>
+        project.title.toLowerCase().includes(lowerCaseQuery) ||
+        project.tag.toLowerCase().includes(lowerCaseQuery) ||
+        project.problem.toLowerCase().includes(lowerCaseQuery) ||
+        project.solution.toLowerCase().includes(lowerCaseQuery)
+      );
+    }
+    
+    // 4. Sorting
+    result.sort((a, b) => {
+      switch (sortOption) {
+        case 'date-desc':
+          // Extracts the first date part (e.g., 'Feb 2025' from 'Feb 2025 – Present')
+          return new Date(b.date.split(' – ')[0]).getTime() - new Date(a.date.split(' – ')[0]).getTime();
+        case 'date-asc':
+          return new Date(a.date.split(' – ')[0]).getTime() - new Date(b.date.split(' – ')[0]).getTime();
+        case 'alpha-asc':
+          return a.title.localeCompare(b.title);
+        case 'alpha-desc':
+          return b.title.localeCompare(a.title);
+        case 'priority':
+          // Sorts priority: true projects first, then by date-desc
+          if (a.priority && !b.priority) return -1;
+          if (!a.priority && b.priority) return 1;
+          return new Date(b.date.split(' – ')[0]).getTime() - new Date(a.date.split(' – ')[0]).getTime();
+        default:
+          return 0;
+      }
+    });
+
+    return result;
+  }, [filters, searchQuery, sortOption]);
+  
+  // Separate filtered projects for the two display sections
+  const filteredPriorityProjects = useMemo(() => filteredProjects.filter(p => p.priority), [filteredProjects]);
+  const filteredArchiveProjects = filteredProjects; // WorkTimeline uses all filtered projects
 
   return (
     <div className="min-h-screen relative p-4 sm:p-8 lg:p-12 transition-smooth">
@@ -933,12 +1121,27 @@ const Index = () => {
       <main className="max-w-[1920px] mx-auto" id="main-content">
         <Hero handleHover={handleHover} handleLeave={handleLeave} />
         <AboutSection />
+        
+        {/* NEW FILTER SECTION - ADDED HERE */}
+        <section className="py-24 max-w-[1600px] mx-auto">
+            <FilterSection 
+                onFilterChange={handleFilterChange}
+                onSearchChange={handleSearchChange}
+                onSortChange={handleSortChange}
+            />
+        </section>
+        
+        {/* PRIORITY PROJECTS GRID - UPDATED TO USE filteredPriorityProjects */}
         <PriorityProjectsGrid 
+          projects={filteredPriorityProjects} // Pass filtered projects
           handleHover={handleHover} 
           handleLeave={handleLeave} 
           toggleProjectExpansion={toggleProjectExpansion}
         />
+        
+        {/* WORK TIMELINE - UPDATED TO USE filteredArchiveProjects */}
         <WorkTimeline
+          projects={filteredArchiveProjects} // Pass filtered projects
           expandedProjects={expandedProjects}
           toggleProjectExpansion={toggleProjectExpansion}
           handleHover={handleHover}
