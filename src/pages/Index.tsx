@@ -34,7 +34,7 @@ const PROJECTS = [
     process: ['Requirements gathering and system design', 'Database schema design with normalized tables', 'Role-based access control implementation', 'Team management and sprint planning'],
     result: 'Successfully deployed system supporting 500+ concurrent users with 99.9% uptime. Led 5-person development team, managing sprints and deliverables using Agile methodology.',
     image: fintechImage,
-    liveUrl: 'https://github.com/abdelrahim3aa',
+    liveUrl: '',
     // ADDED FOR FILTERING
     type: ['Full Stack', 'Server Rendered', 'Education'], 
     technology: ['Laravel', 'MySQL', 'PHP'],
@@ -55,7 +55,7 @@ const PROJECTS = [
     process: ['WebSocket server setup and optimization', 'Event-driven architecture design', 'Authentication and authorization implementation', 'Load testing and performance tuning'],
     result: 'Platform handles 1,000+ simultaneous connections with sub-second message delivery. Reduced security vulnerabilities by 95% through proper authentication implementation.',
     image: ecommerceImage,
-    liveUrl: 'https://github.com/abdelrahim3aa',
+    liveUrl: '',
     // ADDED FOR FILTERING
     type: ['Full Stack', 'Real-Time'],
     technology: ['Laravel', 'PHP', 'WebSockets'],
@@ -76,10 +76,11 @@ const PROJECTS = [
     process: ['RESTful endpoint design and implementation', 'OAuth 2.0 token-based authentication', 'Database query optimization and indexing', 'Redis caching implementation'],
     result: 'API handles 50,000+ daily requests with 99.5% uptime. Improved response times by 60% through database optimization and caching strategies.',
     image: cloudImage,
-    liveUrl: 'https://github.com/abdelrahim3aa',
+    liveUrl: '',
     // ADDED FOR FILTERING
     type: ['Backend', 'API', 'E-commerce'],
-    technology: ['Laravel', 'MySQL', 'PHP', 'API'],},
+    technology: ['Laravel', 'MySQL', 'PHP', 'API'],
+  },
   {
     id: 'p-04',
     title: 'Newssy App',
@@ -96,10 +97,11 @@ const PROJECTS = [
     process: ['Content management system architecture', 'Multi-language localization implementation', 'Analytics dashboard development', 'Frontend optimization with lazy loading'],
     result: 'Platform supports 5,000+ users with 35% increase in user engagement. Reduced page load times by 45% through frontend optimization techniques.',
     image: fintechImage,
-    liveUrl: 'https://github.com/abdelrahim3aa',
+    liveUrl: '',
     // ADDED FOR FILTERING
     type: ['Full Stack', 'Server Rendered', 'Content Management'],
-    technology: ['Laravel', 'MySQL', 'PHP', 'Blade'],},
+    technology: ['Laravel', 'MySQL', 'PHP', 'Blade'],
+  },
   {
     id: 'p-05',
     title: 'SubTrack API',
@@ -121,8 +123,8 @@ const PROJECTS = [
       'MongoDB schema design for users and subscriptions'
     ],
     result: 'Achieved 99.9% uptime reliability with automated daily checks for 1,000+ tracked subscriptions. Reduced missed renewals by 85% through precise email notifications. Token revocation system enhances security by preventing replay attacks.',
-    image: subTrack,
-    liveUrl: 'https://github.com/abdelrahim3aa',
+    image: subTrack, // Replace with your actual image
+    liveUrl: '',
     features: [
       'JWT-based stateless authentication',
       'Automated email reminders (customizable timing)',
@@ -151,38 +153,28 @@ const PROJECTS = [
     // ADDED FOR FILTERING
     type: ['Backend', 'API', 'Fintech'],
     technology: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-  },
+  }
 ];
 
-// CATEGORIZED TECH STACK with accurate multi-color icons
-const TECH_CATEGORIES = [
-  {
-    title: 'Languages',
-    technologies: [
-      { name: 'PHP', icon: SiPhp, color: '#7075b9ff' },
-      { name: 'C++', icon: SiCplusplus, color: '#00599C' },
-      { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-      { name: 'Python', icon: SiPython, gradient: 'linear-gradient(180deg, #3776AB 50%, #FFD43B 50%)' },
-      { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
-      { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
-    ]
-  },
-  {
-    title: 'Frameworks & Tools',
-    technologies: [
-      { name: 'Laravel', icon: SiLaravel, color: '#fd2115ff' },
-      { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-      { name: 'Express.js', icon: SiExpress, color: '#232222ff' },
-      { name: 'React', icon: SiReact, color: '#61DAFB' },
-      { name: 'MySQL', icon: SiMysql, gradient: 'linear-gradient(135deg, #00758F 0%, #F29111 100%)' },
-      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-      { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-      { name: 'Composer', icon: SiComposer, color: '#885630' },
-      { name: 'npm', icon: SiNpm, color: '#CB3837' },
-      { name: 'Linux', icon: SiLinux, color: '#FCC624' },
-    ]
-  }
+// MODIFIED: Added 'color' property (using HEX codes for brand colors)
+const CAPABILITIES = [
+  { name: 'PHP', icon: SiPhp, color: '#777BB4' },
+  { name: 'Laravel', icon: SiLaravel, color: '#FF2D20' },
+  { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+  { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+  { name: 'Express.js', icon: SiExpress, color: '#000000' }, 
+  { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+  { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+  { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
+  { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+  { name: 'Git', icon: SiGit, color: '#F05032' },
+  { name: 'React', icon: SiReact, color: '#61DAFB' },
+  { name: 'Composer', icon: SiComposer, color: '#885630' },
+  { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+  { name: 'Python', icon: SiPython, color: '#3776AB' },
+  { name: 'npm', icon: SiNpm, color: '#CB3837' },
 ];
 
 const PHILOSOPHY = [
@@ -361,9 +353,9 @@ const Hero = ({ handleHover, handleLeave }: { handleHover: (text: string) => voi
           <motion.p
             className="text-lg font-light mb-4 text-muted-foreground"
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
-        >
-            <span className="text-lime-600">Abdelrahim Abuelmaaref</span> – Junior Full-Stack Developer
-        </motion.p>
+          >
+            Junior Full-Stack Developer
+          </motion.p>
           <motion.h1
             className="text-balance font-extrabold leading-tight tracking-tighter"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
@@ -521,7 +513,7 @@ const AboutSection = () => (
                   </p>
                 </div>
                 <motion.a
-                  href="https://github.com/abdelrahim3aa/Learning-Management-Systems-LMS_GP"
+                  href="https://github.com/abdelrahim3aa"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-accent/10 hover:bg-accent hover:text-accent-foreground transition-all duration-200"
@@ -794,10 +786,11 @@ const ContentBlock = ({ title, text, highlighted }: { title: string; text: strin
   </div>
 );
 
+// FIX IMPLEMENTED HERE
 const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
   <section id="capabilities" className="py-24 max-w-[1600px] mx-auto">
     <motion.h2
-      className="text-4xl sm:text-5xl font-light tracking-wide mb-16 max-w-7xl"
+      className="text-4xl sm:text-5xl font-light tracking-wide mb-24 max-w-7xl"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -805,80 +798,52 @@ const CapabilitySignal = ({ handleHover, handleLeave, cursorText }: any) => (
       Tech Stack
     </motion.h2>
 
-    <div className="space-y-16">
-      {TECH_CATEGORIES.map((category, categoryIndex) => (
+    <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 max-w-4xl mx-auto">
+      {CAPABILITIES.map((cap, index) => (
         <motion.div
-          key={category.title}
-          className="max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: categoryIndex * 0.2 }}
+          key={cap.name}
+          className="relative w-16 h-16 flex flex-col items-center justify-center group"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: index * 0.05 }}
+          role="img"
+          aria-label={`${cap.name} technical skill`}
         >
-          <motion.h3 
-            className="text-2xl font-semibold mb-8 text-accent text-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: categoryIndex * 0.2 + 0.1 }}
+          <motion.div
+            // Removed dynamic Tailwind classes and moved color/shadow logic to framer-motion's style animation
+            initial={{ color: 'hsl(var(--foreground) / 0.7)', filter: 'none' }} // Initial subtle color
+            whileHover={{ 
+              scale: 1.2, 
+              rotate: 3, 
+              color: cap.color, // Set icon color to brand color (hex)
+              filter: `drop-shadow(0px 0px 8px ${cap.color})` // Apply matching drop shadow
+            }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 400, 
+              damping: 10,
+              color: { duration: 0.3 }, // Smooth color transition
+              filter: { duration: 0.3 }
+            }}
+            // Use a default foreground class for non-animated state
+            className="text-foreground/70"
           >
-            {category.title}
-          </motion.h3>
+            <cap.icon
+              size={48}
+              // Icon component now inherits the animated style from the parent motion.div
+            />
+          </motion.div>
           
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-16">
-            {category.technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                className="relative w-16 h-16 flex flex-col items-center justify-center group"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: categoryIndex * 0.2 + index * 0.05 }}
-                role="img"
-                aria-label={`${tech.name} technical skill`}
-              >
-                <motion.div
-                  initial={{ 
-                    filter: 'grayscale(0.3) opacity(0.7)'
-                  }}
-                  whileHover={{ 
-                    scale: 1.2, 
-                    rotate: 3,
-                    filter: tech.gradient 
-                      ? 'grayscale(0) opacity(1) drop-shadow(0px 0px 10px rgba(255, 215, 0, 0.6)) drop-shadow(0px 0px 10px rgba(59, 130, 246, 0.6))'
-                      : `grayscale(0) opacity(1) drop-shadow(0px 0px 10px ${tech.color})`
-                  }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 400, 
-                    damping: 10,
-                    filter: { duration: 0.3 }
-                  }}
-                  className="text-foreground/70"
-                  style={tech.gradient ? {
-                    background: tech.gradient,
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    color: 'transparent'
-                  } : {
-                    color: tech.color
-                  }}
-                >
-                  <tech.icon size={48} />
-                </motion.div>
-                
-                <motion.span 
-                  className="absolute -bottom-8 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
-                  style={{ color: tech.color || '#888' }}
-                  initial={{ y: -5 }}
-                  whileHover={{ y: 0 }}
-                >
-                  {tech.name}
-                </motion.span>
-              </motion.div>
-            ))}
-          </div>
+          {/* Text Label Fix: Set the color inline. Visibility is controlled by Tailwind's group-hover */}
+          <motion.span 
+            className={`absolute -bottom-8 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap`}
+            style={{ color: cap.color }} // Use inline style to set the brand color
+            initial={{ y: -5 }}
+            whileHover={{ y: 0 }}
+          >
+            {cap.name}
+          </motion.span>
         </motion.div>
       ))}
     </div>
@@ -1153,25 +1118,19 @@ const Index = () => {
   return (
     <div className="min-h-screen relative p-4 sm:p-8 lg:p-12 transition-smooth">
       <Navigation darkMode={darkMode} toggleMode={toggleMode} />
+      <CustomCursor cursorText={cursorText} />
 
       <main className="max-w-[1920px] mx-auto" id="main-content">
         <Hero handleHover={handleHover} handleLeave={handleLeave} />
         <AboutSection />
         
-        {/* FILTER SECTION */}
-        <section id="filter-section" className="py-24 max-w-[1600px] mx-auto scroll-mt-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-            >
-              <FilterSection 
-                  onFilterChange={handleFilterChange}
-                  onSearchChange={handleSearchChange}
-                  onSortChange={handleSortChange}
-              />
-            </motion.div>
+        {/* NEW FILTER SECTION - ADDED HERE */}
+        <section className="py-24 max-w-[1600px] mx-auto">
+            <FilterSection 
+                onFilterChange={handleFilterChange}
+                onSearchChange={handleSearchChange}
+                onSortChange={handleSortChange}
+            />
         </section>
         
         {/* PRIORITY PROJECTS GRID - UPDATED TO USE filteredPriorityProjects */}
